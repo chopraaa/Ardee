@@ -10,7 +10,7 @@ pipeline {
       agent {
         docker {
           image 'varunchopra/ansible:windows'
-          args '--user 100:101'
+          args '--user ansible'
         }
 
       }
