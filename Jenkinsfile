@@ -17,7 +17,7 @@ pipeline {
         sh '''touch testfile
 ls -la
 pwd'''
-        ansiblePlaybook 'main.yml'
+        ansiblePlaybook(playbook: 'main.yml', become: true, disableHostKeyChecking: true)
       }
     }
   }
