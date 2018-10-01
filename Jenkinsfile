@@ -14,9 +14,7 @@ pipeline {
 
       }
       steps {
-        sh '''ls -la /
-
-'''
+        sh 'whoami'
         ansiblePlaybook 'main.yml'
       }
     }
