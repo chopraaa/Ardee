@@ -8,8 +8,8 @@ pipeline {
     }
     stage('Ansible') {
       agent {
-        docker {
-          image 'varunchopra/ansible:windows'
+        dockerfile {
+          filename 'ansible-Dockerfile'
         }
 
       }
