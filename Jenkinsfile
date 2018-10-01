@@ -14,6 +14,9 @@ pipeline {
 
       }
       steps {
+        sh '''ls -l /
+
+'''
         ansiblePlaybook 'main.yml'
       }
     }
