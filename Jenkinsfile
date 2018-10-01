@@ -15,7 +15,8 @@ pipeline {
       }
       steps {
         sh '''touch testfile
-ls -la'''
+ls -la
+pwd'''
         ansiblePlaybook 'main.yml'
       }
     }
