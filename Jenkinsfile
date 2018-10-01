@@ -14,7 +14,6 @@ pipeline {
 
       }
       steps {
-        sh 'mkdir /.ansible'
         ansiblePlaybook(playbook: 'main.yml', become: true, disableHostKeyChecking: true)
       }
     }
