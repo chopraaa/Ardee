@@ -14,9 +14,11 @@ pipeline {
         }
 
       }
+      environment {
+        RDP_USER = 'testuser191'
+        REMOTE_PASS = 'myTempPassword123!'
+      }
       steps {
-        pwd()
-        git(url: 'https://github.com/chopraaa/automatic-octo-spork.git', credentialsId: 'chopraaa-git')
         ansiblePlaybook(playbook: 'main.yml', become: true, disableHostKeyChecking: true, inventory: '${WORKSPACE}/inventory')
       }
     }
