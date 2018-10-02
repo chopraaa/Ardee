@@ -1,11 +1,6 @@
 pipeline {
   agent none
   stages {
-    stage('Initialize') {
-      steps {
-        echo 'This is my first pipeline!'
-      }
-    }
     stage('Ansible') {
       agent {
         docker {
@@ -20,7 +15,7 @@ pipeline {
         ANSIBLE_CONFIG = './ansible.cfg'
       }
       steps {
-        ansiblePlaybook(playbook: 'main.yml', disableHostKeyChecking: true, inventory: '${WORKSPACE}/inventory')
+        ansiblePlaybook(playbook: 'main.yml', disableHostKeyChecking: true)
       }
     }
   }
