@@ -17,9 +17,10 @@ pipeline {
       environment {
         RDP_USER = 'testuser191'
         REMOTE_PASS = 'myTempPassword123!'
+        ANSIBLE_CONFIG = './ansible.cfg'
       }
       steps {
-        ansiblePlaybook(playbook: 'main.yml', become: true, disableHostKeyChecking: true, inventory: '${WORKSPACE}/inventory')
+        ansiblePlaybook(playbook: 'main.yml', disableHostKeyChecking: true, inventory: '${WORKSPACE}/inventory')
       }
     }
   }
