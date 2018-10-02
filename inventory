@@ -1,0 +1,10 @@
+[remote-serv]
+rdp-fra01 ansible_host=ec2-54-225-0-93.compute-1.amazonaws.com
+;rdp-ind01 ansible_host=
+
+[remote-serv:vars]
+ansible_connection=winrm
+ansible_port=5986
+ansible_user=Administrator
+ansible_password="{{ lookup('env', 'REMOTE_PASS') }}"
+ansible_winrm_server_cert_validation=ignore
