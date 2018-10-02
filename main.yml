@@ -1,0 +1,14 @@
+---
+- hosts: all
+  vars:
+    rdp_user: "{{ lookup('env', 'RDP_USER') }}"
+  tasks:
+    - win_user:
+        name: "{{ rdp_user }}"
+        password: "{{ lookup('password', 'passwd.log chars=ascii_letters,digits,hexdigits,punctuation') }}"
+        state: present
+        groups:
+          - Users
+          - Remote Desktop Users
+        password_expired: True
+      ignore_errors: True
